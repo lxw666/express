@@ -1,0 +1,30 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		.navbar.navbar-fixed-top
+			.navbar-inner
+				.container
+					a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+						- var icon = ['icon-bar','icon-bar','icon-bar']
+						- each item in icon
+							span(class='#{item}')
+					a.brand(href="/") Microblog
+					.nav-collapse
+						ul.nav
+							- each item in commonBar
+								li(class='#{item.className}')
+									a(href='#{item.href}') #{item.text}
+		.container#container				
+			block content
+			hr
+			footer
+				p
+					a(href="http://www.byvoid.com/", target="_blank") BYVoid
+					span 2012
+		script(src="/javascripts/jquery-3.3.1.js")
+		script(src="/javascripts/bootstrap.js")
