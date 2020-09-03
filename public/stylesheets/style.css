@@ -9,3 +9,6 @@ body {
 a {
   color: #00B7FF;
 }
+.navbar-fixed-top, .navbar-fixed-bottom{
+	position: sticky;
+}

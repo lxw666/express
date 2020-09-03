@@ -9,6 +9,9 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+var MongoStore = require('connect-mongo'); 
+var settings = require('./settings');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -20,6 +23,10 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.session({
+// 	secret: settings.cookieSecret,
+// 	store: new MongoStore({db: settings.db})
+// })); 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
